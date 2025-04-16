@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+f<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -23,7 +23,7 @@
   <meta name="twitter:image" content="https://kai-tokei.github.io/moon-ring-map/kuma.png"> <!-- Same image -->
 
   <!-- Optional Favicon -->
-  <link rel="icon" href="https://yourdomain.com/favicon.ico" type="image/x-icon">
+  <!-- <link rel="icon" href="https://yourdomain.com/favicon.ico" type="image/x-icon">-->
 
   <title>KUMA CHIZU in TAMA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,9 +33,6 @@
 
   <!-- Animate.css (CDN) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
-
-<!-- Font Awesome (for icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 
   <style>
@@ -140,12 +137,14 @@
     <i class="fas fa-print"></i>
   </button>
 
-  <script>
-    // Print trigger
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('print-btn').addEventListener('click', () => {
       window.print();
     });
-  </script>
+  });
+</script>
+
 
 <iframe src="bear_map.html"
   style="width: 100%; height: 100vh; border: none;"
