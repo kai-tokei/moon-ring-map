@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="An interactive map showing bear sightings in the Tama area, powered by open data and designed with animation and clarity.">
+  <meta name="keywords" content="bear sightings, Tama, map, wildlife, Japan, interactive map, Asiatic black bear, moon ring, 熊, 地図, 熊地図">
+  <meta name="author" content="Your Name or Project Name">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="KUMA CHIZU in TAMA - Bear Sightings Map">
+  <meta property="og:description" content="Explore an interactive map of Asiatic black bear sightings in the Tama region.">
+  <meta property="og:image" content="https://kai-tokei.github.io/moon-ring-map/kuma.png"> <!-- Replace with your actual image -->
+  <meta property="og:url" content="https://kai-tokei.github.io/moon-ring-map/index.html"> <!-- Replace with your GitHub Pages URL -->
+  <meta property="og:type" content="website">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KUMA CHIZU in TAMA">
+  <meta name="twitter:description" content="A beautifully animated map of bear sightings in western Tokyo.">
+  <meta name="twitter:image" content="https://kai-tokei.github.io/moon-ring-map/kuma.png"> <!-- Same image -->
+
+  <!-- Optional Favicon -->
+  <link rel="icon" href="https://yourdomain.com/favicon.ico" type="image/x-icon">
+
+  <title>KUMA CHIZU in TAMA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Optional: printer icon from Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* === Splash Screen Styles === */
+    #splash {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #0a0a0aee;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      font-family: 'Segoe UI', sans-serif;
+      animation: fadeOut 2.5s ease forwards;
+      animation-delay: 2.5s;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    #splash h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: 0.05em;
+      margin: 0;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    #splash p {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      margin-top: 1rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out forwards;
+      animation-delay: 1s;
+      color: #cccccc;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    /* === Print Button Styles === */
+    #print-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #4A90E2; /* mid-century blue */
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
+    }
+
+    #print-btn:hover {
+      background-color: #4177c2;
+    }
+
+    #print-btn i {
+      font-size: 1.2rem;
+    }
+
+    @media (min-width: 768px) {
+      #print-btn {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Splash screen -->
+  <div id="splash">
+    <h1>KUMA CHIZU in TAMA</h1>
+    <p>〜 The map of bear sightings 〜</p>
+  </div>
+
+  <!-- Print button -->
+  <button id="print-btn" title="Print Map">
+    <i class="fas fa-print"></i>
+  </button>
+
+  <script>
+    // Print trigger
+    document.getElementById('print-btn').addEventListener('click', () => {
+      window.print();
+    });
+  </script>
+
+<iframe src="bear_map.html"
+  style="width: 100%; height: 100vh; border: none;"
+  title="KUMA CHIZU Map"
+  loading="lazy">
+</iframe>
