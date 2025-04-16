@@ -153,15 +153,20 @@ f<!DOCTYPE html>
   </button>
 
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('print-btn').addEventListener('click', () => {
-      window.print();
-    });
+  document.getElementById('print-btn').addEventListener('click', () => {
+    const iframe = document.getElementById('mapFrame');
+    if (iframe && iframe.contentWindow) {
+      iframe.contentWindow.focus();  // フォーカスをiframe内に移動
+      iframe.contentWindow.print();  // iframe内のページを印刷
+    } else {
+      window.print();  // iframeが読み込めてない場合は親ページを印刷
+    }
   });
 </script>
 
 
 <iframe src="bear_map.html"
+  id="mapFrame"
   style="width: 100%; height: 100vh; border: none;"
   title="KUMA CHIZU Map"
   loading="lazy">
